@@ -1,0 +1,1 @@
+var names = ["Yael","Nadav", "Aviv","Dor", "Liad", "Chen"]
