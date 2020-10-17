@@ -12,7 +12,26 @@ class Autocomplete {
         this.inputText = element.querySelector('.input-text');
 
         this.root = element;
-        element.querySelector('input').addEventListener('input', () => {this.fillList()});
+        const input = element.querySelector('input');
+        const plist = element.querySelector('p');
+
+        this.init(input);
+        this.handleOptionsVisibility(input, plist);
+    }
+    
+    init(input) {
+        input.addEventListener('input', () => {this.fillList()});
+    }
+
+    handleOptionsVisibility(input, plist) {
+        input.addEventListener('focus', (event) => {
+            plist.style.visibility = 'visible';
+          });
+          
+        input.addEventListener('blur', (event) => {
+            plist.style.visibility = 'hidden';
+        });
+        plist.style.visibility = 'hidden'; 
     }
 
     setOptions(options) {
